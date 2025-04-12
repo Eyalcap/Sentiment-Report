@@ -4,7 +4,7 @@ import csv
 import json
 import os
 import time
-import requests
+from security import safe_requests
 
 
 def generate(ticker):
@@ -51,7 +51,7 @@ def generate(ticker):
     while True:
         # response = req_proxy.generate_proxied_request(stocktwit_url)
         try:
-            response = requests.get(stocktwit_url)
+            response = safe_requests.get(stocktwit_url)
         except Exception:
             response = None
 
